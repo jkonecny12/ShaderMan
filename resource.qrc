@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>shaders/app_default.frag</file>
+        <file>shaders/app_default.vert</file>
+        <file alias="button_delete.png">resources/images/button_delete_red.png</file>
+        <file alias="button_plus.png">resources/images/button_plus_green.png</file>
+        <file alias="folder_blue.png">resources/images/folder_blue.png</file>
+        <file alias="document_frag.png">resources/images/document_frag.png</file>
+        <file alias="document_vert.png">resources/images/document_vert.png</file>
+    </qresource>
+</RCC>
