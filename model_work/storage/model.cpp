@@ -185,16 +185,6 @@ QStringList Model::getAttachedPrograms()
 
     progs.removeDuplicates();
     progs.removeAll("");
-    /*
-    QSet<MetaShaderProg*> temp = progs.toSet();
-    QSet<MetaShaderProg*> ret;
-
-    foreach(MetaShaderProg* prog, temp)
-    {
-        if(prog != NULL)
-            ret.insert(prog);
-    }
-    */
 
     return progs;
 }
@@ -400,10 +390,6 @@ float* Model::copyVecToFloat(aiVector3D* vec, unsigned int num)
 
     memcpy(out,vec,sizeof(float)*3*num);
 
-/*
-    for(unsigned int i = 0; i < 3*num; ++i)
-        qDebug() << out[i];
-*/
     return out;
 }
 
@@ -443,11 +429,7 @@ unsigned int *Model::copyIdxToUInt(aiFace *face, unsigned int num)
         memcpy(&out[id],face[i].mIndices,sizeof(unsigned int)*3);
         id += 3;
     }
-/*
-    qDebug() << "Indices:";
-    for(unsigned int i = 0; i < 3*num; ++i)
-        qDebug() << out[i];
-*/
+
     return out;
 }
 
@@ -490,11 +472,6 @@ void Model::copyNodes(aiNode *node, ModelNode *myNode)
     float temp[16];
     memcpy(temp,&trans,sizeof(float)*16);
 
-    //float rtemp[16];
-
-    //for(int i = 0; i < 16; ++i)
-    //    rtemp[i] = temp[i];
-
     QMatrix4x4 myTrans(temp);
 
     myNode->setNodeTransformation(myTrans);
@@ -507,18 +484,6 @@ void Model::copyNodes(aiNode *node, ModelNode *myNode)
         copyNodes(node->mChildren[i],myNewNode);
     }
 
-
-    /*
-    MetaProject* proj = InfoManager::getInstance()->getActiveProject();
-    if(proj == NULL)
-        return;
-
-    // set shader program for drawing
-    MetaShaderProg* program = InfoManager::getInstance()->getActiveProject()->getProgram();
-
-    if(program != NULL)
-        myNode->setShProgramToAll(program);
-    */
 }
 
 /**
@@ -604,8 +569,6 @@ QDataStream &operator <<(QDataStream &stream, const Model &model)
 QDataStream &operator >>(QDataStream &stream, Model &model)
 {
     stream >> model.path;
-
-    //model.loadModel(model.path);
 
     return stream;
 }

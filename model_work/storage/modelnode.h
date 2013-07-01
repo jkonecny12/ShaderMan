@@ -5,8 +5,10 @@
 #include <QStringList>
 #include <QMatrix4x4>
 #include "model_work/storage/mesh.h"
-//#include "meta_data/metashaderprog.h"
 
+/**
+ * @brief The ModelNode class storage meshes and other nodes. This class give us a good rendering hierarchy.
+ */
 class ModelNode
 {
 public:

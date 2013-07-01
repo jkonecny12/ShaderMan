@@ -4,6 +4,9 @@
 #include <QList>
 #include <QDebug>
 
+/**
+ * @brief The Mesh class contains all important data about mesh.
+ */
 class Mesh
 {
 public:

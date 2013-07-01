@@ -4,6 +4,19 @@
 //static member of class
 unsigned long Mesh::counter = 0;
 
+/**
+ * @brief Mesh::Mesh Create mesh object.
+ * @param numVertex How many vertices is in this object.
+ * @param vertices Vertices array.
+ * @param numNormals How many normals is in this object.
+ * @param normals Normals array.
+ * @param numColors How many colors is in this object.
+ * @param colors Colors array.
+ * @param numTexCoords How many texture coordinates is in this object.
+ * @param texCoords Texture coordinates array.
+ * @param numIndices How many indices is in this object.
+ * @param indices Indices array.
+ */
 Mesh::Mesh(unsigned int numVertex, float *vertices,
            unsigned int numNormals, float *normals,
            QList<unsigned int> numColors, QList<float *> colors,
@@ -30,6 +43,9 @@ Mesh::Mesh(unsigned int numVertex, float *vertices,
     qDebug() << "Created mesh with index: " << index;
 }
 
+/**
+ * @brief Mesh::~Mesh Destroy this object and free memory.
+ */
 Mesh::~Mesh()
 {
     delete this->vertices;
@@ -38,6 +54,7 @@ Mesh::~Mesh()
     delete this->indices;
 
     qDeleteAll(colors);
+    qDeleteAll(texCoords);
 }
 
 /**

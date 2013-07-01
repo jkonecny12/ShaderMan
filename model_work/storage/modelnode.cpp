@@ -3,6 +3,10 @@
 
 unsigned int ModelNode::counter = 0;
 
+/**
+ * @brief ModelNode::ModelNode Create new node for this model.
+ * @param node Parent of this node.
+ */
 ModelNode::ModelNode(ModelNode *node)
 {
     parent = node;
@@ -11,6 +15,9 @@ ModelNode::ModelNode(ModelNode *node)
     ++counter;
 }
 
+/**
+ * @brief ModelNode::~ModelNode Destroy this node and all it's childrens.
+ */
 ModelNode::~ModelNode()
 {
     qDeleteAll(childs);

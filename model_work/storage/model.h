@@ -16,6 +16,9 @@
 #include "model_work/storage/modelnode.h"
 #include "meta_data/metashaderprog.h"
 
+/**
+ * @brief The Model class contains all data for one model.
+ */
 class Model : QObject
 {
     Q_OBJECT
